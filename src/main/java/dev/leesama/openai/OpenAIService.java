@@ -1,4 +1,4 @@
-package dev.leesher.openai;
+package dev.leesama.openai;
 
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;

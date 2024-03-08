@@ -7,23 +7,39 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
-    <groupId>dev.leesher</groupId>
+    <groupId>dev.leesama</groupId>
     <artifactId>openai-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>openai-spring-boot-starter</name>
     <description>Spring Boot Starter for Openai</description>
+    <url>https://github.com/leesama/openai-spring-boot-starter</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Your Name</name>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/leesama/openai-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:ssh://github.com:leesama/openai-spring-boot-starter.git</developerConnection>
+        <url>https://github.com/leesama/openai-spring-boot-starter</url>
+    </scm>
     <properties>
         <java.version>21</java.version>
     </properties>
     <dependencies>
-        <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 用于HTTP请求的库，如Spring WebClient -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>

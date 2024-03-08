@@ -1,4 +1,4 @@
-package dev.leesher.openai;
+package dev.leesama.openai;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;

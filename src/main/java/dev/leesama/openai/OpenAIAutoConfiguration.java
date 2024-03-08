@@ -1,4 +1,4 @@
-package dev.leesher.openai;
+package dev.leesama.openai;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
