@@ -11,13 +11,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class OpenAIAutoConfiguration {
 
     @Bean
-    public WebClient.Builder webClientBuilder() {
-        return WebClient.builder();
+    public WebClient webClient(WebClient.Builder webClientBuilder, OpenAIProperties properties) {
+        return webClientBuilder.baseUrl(properties.getBaseUrl()).build();
     }
-
     @Bean
     @ConditionalOnProperty(name = "openai.enabled", havingValue = "true", matchIfMissing = true)
-    public OpenAIService openAIService(WebClient.Builder webClientBuilder, OpenAIProperties properties) {
-        return new OpenAIService(webClientBuilder, properties);
+    public OpenAIService openAIService(WebClient webClient, OpenAIProperties properties) {
+        return new OpenAIService(webClient, properties);
     }
 }

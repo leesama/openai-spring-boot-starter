@@ -10,9 +10,10 @@ public class OpenAIService {
     private final WebClient webClient;
     private final OpenAIProperties properties;
 
-    public OpenAIService(WebClient.Builder webClientBuilder, OpenAIProperties properties) {
+    // 现在构造函数接受一个WebClient实例和OpenAIProperties实例
+    public OpenAIService(WebClient webClient, OpenAIProperties properties) {
+        this.webClient = webClient; // 直接使用提供的WebClient实例
         this.properties = properties;
-        this.webClient = webClientBuilder.baseUrl(properties.getBaseUrl()).build();
     }
 
     public Mono<String> callOpenAI(String modelName, String prompt) {

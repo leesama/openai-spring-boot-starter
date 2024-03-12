@@ -105,17 +105,17 @@
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <name>releases</name>
-            <url>http://mvn2.qdingnet.com/nexus/content/repositories/releases</url>
-            <uniqueVersion>true</uniqueVersion>
-        </repository>
-        <snapshotRepository>
-            <id>nexus</id>
-            <name>snapshots</name>
-            <url>http://XXXXXXXXXXXXX/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>nexus</id>-->
+<!--            <name>releases</name>-->
+<!--            <url>http://mvn2.qdingnet.com/nexus/content/repositories/releases</url>-->
+<!--            <uniqueVersion>true</uniqueVersion>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>nexus</id>-->
+<!--            <name>snapshots</name>-->
+<!--            <url>http://XXXXXXXXXXXXX/nexus/content/repositories/snapshots</url>-->
+<!--        </snapshotRepository>-->
+<!--    </distributionManagement>-->
 </project>

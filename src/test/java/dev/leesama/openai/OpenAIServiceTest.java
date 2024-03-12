@@ -6,45 +6,44 @@ import org.mockito.Mockito;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-import java.util.Collections;
-import java.util.Map;
+import java.net.URI;
+import java.util.function.Function;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
 
 class OpenAIServiceTest {
 
     private OpenAIService openAIService;
     private WebClient webClientMock;
-    private WebClient.RequestHeadersSpec requestHeadersMock;
     private WebClient.RequestHeadersUriSpec requestHeadersUriMock;
     private WebClient.RequestBodySpec requestBodyMock;
-    private WebClient.RequestBodyUriSpec requestBodyUriMock;
+    private WebClient.RequestHeadersSpec requestHeadersMock;
     private WebClient.ResponseSpec responseMock;
     private OpenAIProperties propertiesMock;
 
     @BeforeEach
     void setUp() {
         webClientMock = mock(WebClient.class);
+        WebClient.RequestBodyUriSpec requestBodyUriMock = mock(WebClient.RequestBodyUriSpec.class);
+        WebClient.RequestBodySpec requestBodyMock = mock(WebClient.RequestBodySpec.class);
+        WebClient.RequestHeadersSpec requestHeadersMock = mock(WebClient.RequestHeadersSpec.class);
+        WebClient.ResponseSpec responseMock = mock(WebClient.ResponseSpec.class);
+
+        when(webClientMock.post()).thenReturn(requestBodyUriMock); // 开始返回RequestBodyUriSpec
+        when(requestBodyUriMock.uri(any(Function.class))).thenReturn(requestBodyMock); // 继续链式调用返回RequestBodySpec
+        when(requestBodyMock.header(anyString(), anyString())).thenReturn(requestBodyMock); // 同一个RequestBodySpec支持header设置
+        when(requestBodyMock.bodyValue(any())).thenReturn(requestHeadersMock); // 最终返回RequestHeadersSpec，准备retrieve
+        when(requestHeadersMock.retrieve()).thenReturn(responseMock); // 调用retrieve准备获取ResponseSpec
+        when(responseMock.bodyToMono(String.class)).thenReturn(Mono.just("mocked response")); // 设置返回值
+
+        // Mock the OpenAIProperties and its ModelConfig
         propertiesMock = Mockito.mock(OpenAIProperties.class);
-
-        // Mocking the chain of WebClient
-        requestHeadersUriMock = mock(WebClient.RequestHeadersUriSpec.class);
-        requestBodyMock = mock(WebClient.RequestBodySpec.class);
-        requestHeadersMock = mock(WebClient.RequestHeadersSpec.class);
-        responseMock = mock(WebClient.ResponseSpec.class);
-
-        when(webClientMock.post()).thenReturn(requestBodyUriMock);
-        when(requestBodyMock.header(anyString(), anyString())).thenReturn(requestBodyMock);
-        when(requestBodyMock.bodyValue(any())).thenReturn(requestHeadersMock);
-        when(requestHeadersMock.retrieve()).thenReturn(responseMock);
-        when(responseMock.bodyToMono(String.class)).thenReturn(Mono.just("response"));
-
-        openAIService = new OpenAIService(WebClient.builder(), propertiesMock);
-    }
-
-    @Test
-    void callOpenAI() {
         OpenAIProperties.ModelConfig modelConfig = new OpenAIProperties.ModelConfig();
         modelConfig.setName("testModel");
         modelConfig.setMaxTokens(100);
@@ -52,13 +51,20 @@ class OpenAIServiceTest {
 
         when(propertiesMock.getApiKey()).thenReturn("testApiKey");
         when(propertiesMock.getBaseUrl()).thenReturn("https://api.openai.com");
-        when(propertiesMock.getModels()).thenReturn(Collections.singletonList(modelConfig));
+        when(propertiesMock.getModels()).thenReturn(java.util.Collections.singletonList(modelConfig));
 
-        openAIService.callOpenAI("testModel", "Test prompt").block();
+        openAIService = new OpenAIService(webClientMock, propertiesMock);
+    }
 
-        verify(webClientMock, times(1)).post();
-        verify(requestBodyMock, times(1)).header("Authorization", "Bearer testApiKey");
-        verify(requestBodyMock, times(1)).bodyValue(Mockito.<Map<String, Object>>any());
-        verify(requestHeadersMock, times(1)).retrieve();
+    @Test
+    void callOpenAI() {
+        String response = openAIService.callOpenAI("testModel", "Test prompt").block();
+
+        // Verify that the webClientMock.post() method was called
+        verify(webClientMock).post();
+
+        // Assertions
+        assertNotNull(response);
+        assertEquals("mocked response", response);
     }
 }
