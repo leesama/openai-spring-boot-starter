@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ce83c89-03ec-4f6e-9fc7-745100184eb2" name="Changes" comment="feat: push to maven">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/github/workflows/maven.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/leesama/openai/OpenAIAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/leesama/openai/OpenAIAutoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/leesama/openai/OpenAIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/leesama/openai/OpenAIService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/dev/leesama/openai/OpenAIServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/leesama/openai/OpenAIServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,14 +35,23 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/test/java/dev/leesama/openai/OpenAIServiceTest.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenRunner">
+    <option name="vmOptions" value="-Dfile.encoding=UTF-8" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2dXM6L2YRgrcRbsqRapONfYABc7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -61,18 +71,25 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
     "last_opened_file_path": "D:/pet-social",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
   </component>
   <component name="RunManager">
     <configuration name="OpenAIServiceTest.callOpenAI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -115,6 +132,13 @@
       <workItem from="1710149799745" duration="2346000" />
       <workItem from="1710211787623" duration="3057000" />
       <workItem from="1710217276082" duration="5501000" />
+      <workItem from="1710319890828" duration="877000" />
+      <workItem from="1710320780527" duration="1546000" />
+      <workItem from="1710322341573" duration="773000" />
+      <workItem from="1710324144719" duration="866000" />
+      <workItem from="1710391423479" duration="46000" />
+      <workItem from="1710391619369" duration="3927000" />
+      <workItem from="1710473088283" duration="3321000" />
     </task>
     <task id="LOCAL-00001" summary="feat: push to maven">
       <option name="closed" value="true" />
@@ -136,6 +160,20 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
+    {
+    },
+    {
+    },
+    {
+    },
+    {
+    },
+    {
+    },
+    {
+    },
     {
     },
     {

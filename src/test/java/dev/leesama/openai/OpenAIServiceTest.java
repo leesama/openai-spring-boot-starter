@@ -35,12 +35,12 @@ class OpenAIServiceTest {
         WebClient.RequestHeadersSpec requestHeadersMock = mock(WebClient.RequestHeadersSpec.class);
         WebClient.ResponseSpec responseMock = mock(WebClient.ResponseSpec.class);
 
-        when(webClientMock.post()).thenReturn(requestBodyUriMock); // 开始返回RequestBodyUriSpec
-        when(requestBodyUriMock.uri(any(Function.class))).thenReturn(requestBodyMock); // 继续链式调用返回RequestBodySpec
-        when(requestBodyMock.header(anyString(), anyString())).thenReturn(requestBodyMock); // 同一个RequestBodySpec支持header设置
-        when(requestBodyMock.bodyValue(any())).thenReturn(requestHeadersMock); // 最终返回RequestHeadersSpec，准备retrieve
-        when(requestHeadersMock.retrieve()).thenReturn(responseMock); // 调用retrieve准备获取ResponseSpec
-        when(responseMock.bodyToMono(String.class)).thenReturn(Mono.just("mocked response")); // 设置返回值
+        when(webClientMock.post()).thenReturn(requestBodyUriMock);
+        when(requestBodyUriMock.uri(any(Function.class))).thenReturn(requestBodyMock);
+        when(requestBodyMock.header(anyString(), anyString())).thenReturn(requestBodyMock);
+        when(requestBodyMock.bodyValue(any())).thenReturn(requestHeadersMock);
+        when(requestHeadersMock.retrieve()).thenReturn(responseMock);
+        when(responseMock.bodyToMono(String.class)).thenReturn(Mono.just("mocked response"));
 
         // Mock the OpenAIProperties and its ModelConfig
         propertiesMock = Mockito.mock(OpenAIProperties.class);
