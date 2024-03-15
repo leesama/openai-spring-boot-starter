@@ -11,7 +11,7 @@
     </parent>
     <groupId>io.github.leesama</groupId>
     <artifactId>openai-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>openai-spring-boot-starter</name>
     <description>Spring Boot Starter for Openai</description>
     <url>https://github.com/leesama/openai-spring-boot-starter</url>
