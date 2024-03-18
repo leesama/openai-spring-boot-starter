@@ -1,14 +1,16 @@
-# OpenAI Starter 中文说明
+# OpenAI Starter English Documentation
 
-## 介绍
+[English](README.md) | [中文](README_CN.md)
 
-这是一个用于集成 OpenAI API 的 Spring Boot Starter。它提供了一种简单的方式来配置和使用 OpenAI API。
+## Introduction
 
-## 如何使用
+This is a Spring Boot Starter for integrating the OpenAI API. It offers a straightforward way to configure and use the OpenAI API.
 
-### 1. 添加依赖
+## How to Use
 
-在你的 Maven 项目中添加以下依赖：
+### 1. Add Dependency
+
+Add the following dependency to your Maven project:
 
 ```xml
 <dependency>
@@ -18,9 +20,9 @@
 </dependency>
 ```
 
-### 2. 配置
+### 2. Configuration
 
-在你的 `application.properties` 或 `application.yml` 文件中添加以下配置：
+Add the following configuration to your `application.properties` or `application.yml` file:
 
 ```yaml
 openai:
@@ -33,11 +35,11 @@ openai:
       temperature: 0.7
 ```
 
-其中，`apiKey` 是你的 OpenAI API 密钥，`models` 是你打算使用的模型列表。
+Here, `apiKey` is your OpenAI API key, and `models` is the list of models you plan to use.
 
-### 3. 使用
+### 3. Usage
 
-在你的代码中，你可以通过注入 `OpenAIService` 来使用 OpenAI API。例如：
+In your code, you can use the OpenAI API by injecting the `OpenAIService`. For example:
 
 ```java
 @Autowired
@@ -51,11 +53,11 @@ public void someMethod() {
 }
 ```
 
-## 注意事项
+## Notes
 
-- `OpenAIService` 中的 `callOpenAI` 方法会返回一个 `Mono<String>`，这是一个响应式类型，你可以使用 `subscribe` 或 `block` 方法来获取结果。
-- 如果你尝试使用一个未在配置中定义的模型名称，`callOpenAI` 方法会抛出 `IllegalArgumentException`。
+- The `callOpenAI` method in `OpenAIService` returns a `Mono<String>`, which is a reactive type. You can use the `subscribe` or `block` methods to obtain the result.
+- If you try to use a model name that is not defined in the configuration, the `callOpenAI` method will throw an `IllegalArgumentException`.
 
-## 贡献
+## Contribution
 
-如果你有任何问题或建议，欢迎提交 issue 或 pull request。
+If you have any issues or suggestions, feel free to submit an issue or pull request.
